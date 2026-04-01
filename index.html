@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurzao | منصة التمكين الرقمي والذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --accent: #22d3ee;
+            --whatsapp: #25d366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        .btn-quote {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-quote:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            margin-top: 80px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 5%;
+            background: #020617;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .service-card i {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 5%;
+            background: linear-gradient(to bottom, #020617, #0f172a);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        /* Investor Section */
+        .investors {
+            padding: 100px 5%;
+            background: #020617;
+            text-align: center;
+        }
+
+        .investor-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(99, 102, 241, 0.05);
+            padding: 60px;
+            border-radius: 30px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 5%;
+            background: linear-gradient(to bottom, #0f172a, #020617);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #94a3b8;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Zao Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 999;
+        }
+
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
+            transition: 0.3s;
+            border: none;
+            color: white;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .whatsapp-button {
+            width: 60px;
+            height: 60px;
+            background-color: var(--whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: 0.3s;
+            border: none;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+        }
+
+        .chat-button:hover, .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-box {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 40px rgba(0, 0, 0, 0.3);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-box.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px 20px;
+            background: #f8fafc;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .message.bot { justify-content: flex-start; }
+        .message.user { justify-content: flex-end; }
+
+        .message-content {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 10px;
+            word-wrap: break-word;
+        }
+
+        .message.bot .message-content { background: #e0e7ff; color: #1e293b; }
+        .message.user .message-content { background: var(--primary); color: white; }
+
+        .chat-input {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .chat-input button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 50px 5%;
+            text-align: center;
+            background: #020617;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .chat-widget { bottom: 20px; right: 20px; }
+
+            .hero h1 { font-size: 2.5rem; }
+            .contact-container { flex-direction: column; }
+            nav ul { display: none; }
+            .chat-box { width: 300px; right: 30px; }
+        }
+    
+        .chat-header i.fa-times {
+            position: absolute !important;
+            top: 15px !important;
+            right: 15px !important;
+            color: white !important;
+            cursor: pointer !important;
+            font-size: 22px !important;
+            z-index: 1002 !important;
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">NURZAO</div>
+        <nav>
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#how-it-works">كيف نعمل</a></li>
+                <li><a href="#investors">المستثمرون</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <a href="#contact" class="btn-quote">اطلب استشارة</a>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>تمكين المستقبل الرقمي</h1>
+        <p>نحن في Nurzao نوفر البنية التحتية التقنية والذكاء الاصطناعي للبراندات والشركات الناشئة التي تسعى للسيطرة على السوق.</p>
+        <div style="display: flex; gap: 20px;">
+            <a href="#services" class="btn-quote">استكشف خدماتنا</a>
+            <a href="https://api.whatsapp.com/send?phone=249110110054&text=مرحباً%20Nurzao،%20أود%20الحصول%20على%20استشارة%20تقنية%20بخصوص%20مشروعي." target="_blank" class="btn-quote" style="background: var(--whatsapp);">تحدث معنا الآن</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>خدماتنا الاستراتيجية</h2>
+            <p style="color: #94a3b8;">حلول تقنية متكاملة مصممة للنمو السريع</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-globe"></i>
+                <h3>Nurzao Domains</h3>
+                <p>تأمين النطاقات الاحترافية التي تعكس قوة علامتك التجارية في السوق العالمي.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>Web & Brand</h3>
+                <p>تصميم واجهات مستخدم فاخرة وصفحات هبوط عالية التحويل للشركات والبراندات.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-robot"></i>
+                <h3>Nurzao AI</h3>
+                <p>وكلاء ذكاء اصطناعي (مثل نور) لأتمتة المبيعات وخدمة العملاء على مدار الساعة.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Cloud & Security</h3>
+                <p>استضافة سحابية فائقة السرعة مع أنظمة أمن سيبراني وتشفير متقدم لحماية بياناتك.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-title">
+            <h2>كيف نقوم بالتمكين</h2>
+            <p style="color: #94a3b8;">مسار واضح من الفكرة إلى السيطرة الرقمية</p>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>التحليل الاستراتيجي</h3>
+                <p>ندرس سوقك ونحدد الثغرات التقنية التي يمكننا استغلالها لنموك.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>بناء البنية التحتية</h3>
+                <p>ننشئ النطاق، الموقع، والأنظمة السحابية الخاصة ببراندك.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>دمج الذكاء الاصطناعي</h3>
+                <p>نطلق وكلاء الذكاء الاصطناعي لأتمتة عملياتك وزيادة مبيعاتك.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>السيطرة والتوسع</h3>
+                <p>نراقب الأداء ونقوم بالتوسع الرقمي لضمان ريادتك للسوق.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="investors" id="investors">
+        <div class="section-title">
+            <h2>علاقات المستثمرين</h2>
+        </div>
+        <div class="investor-content">
+            <h3>رؤية Nurzao 2030</h3>
+            <p style="margin: 20px 0; font-size: 1.2rem; color: #94a3b8;">
+                نحن في Nurzao لا نبني مجرد أدوات، نحن نبني البنية التحتية للجيل القادم من الاقتصاد الرقمي. 
+                استراتيجيتنا تعتمد على دمج الذكاء الاصطناعي في صلب العمليات التجارية لضمان كفاءة لا تضاهى.
+            </p>
+            <p style="color: var(--accent); font-weight: bold;">للمزيد من المعلومات حول فرص الاستثمار، يرجى التواصل مع المقر الرئيسي.</p>
+            <br>
+            <a href="mailto:Nurzao.HQ@gmail.com" class="btn-quote">تواصل مع HQ</a>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>ابدأ رحلتك معنا</h2>
+                <p style="margin: 20px 0; color: #94a3b8;">فريق العمليات لدينا جاهز لتحويل فكرتك إلى واقع رقمي ملموس.</p>
+                <div style="margin-top: 30px;">
+                    <p><i class="fas fa-envelope" style="color: var(--accent); margin-left: 10px;"></i> <a href="mailto:Nurzao.Ops@gmail.com" style="color: var(--accent); text-decoration: none;">Nurzao.Ops@gmail.com</a></p>
+                    <p><i class="fas fa-envelope" style="color: var(--accent); margin-left: 10px;"></i> <a href="mailto:Nurzao.HQ@gmail.com" style="color: var(--accent); text-decoration: none;">Nurzao.HQ@gmail.com</a></p>
+                    <p><i class="fab fa-whatsapp" style="color: var(--accent); margin-left: 10px;"></i> <a href="https://api.whatsapp.com/send?phone=249110110054" style="color: var(--accent); text-decoration: none;">+249110110054</a></p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                    <div class="form-group">
+                        <label>الاسم الكامل</label>
+                        <input type="text" id="name" placeholder="أدخل اسمك" required>
+                    </div>
+                    <div class="form-group">
+                        <label>البريد الإلكتروني</label>
+                        <input type="email" id="email" placeholder="email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف</label>
+                        <input type="tel" id="phone" placeholder="+249..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>الخدمة المطلوبة</label>
+                        <select id="service" required>
+                            <option>نطاقات Nurzao</option>
+                            <option>تصميم مواقع وبراندات</option>
+                            <option>وكلاء ذكاء اصطناعي</option>
+                            <option>استضافة وأمن سيبراني</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>تفاصيل المشروع</label>
+                        <textarea id="details" rows="4" placeholder="اشرح لنا ما تحتاجه..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">إرسال الطلب</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zao Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <i class="fas fa-times" onclick="toggleChat()" style="position: absolute; top: 15px; right: 15px; color: white; cursor: pointer; font-size: 20px;"></i><h3>زاوا - مساعد Nurzao الذكي</h3>
+                <p style="font-size: 0.8rem;">مرحباً! كيف يمكنني مساعدتك؟</p>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <div class="message-content">مرحباً! أنا زاوا، مساعد Nurzao الذكي. هل تريد معرفة المزيد عن خدماتنا؟</div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="اكتب رسالتك...">
+                <button onclick="sendMessage()">إرسال</button>
+            </div>
+        </div>
+        <button class="chat-button" onclick="document.getElementById('chatBox').classList.toggle('active')" title="تحدث مع زاوا">
+            <i class="fas fa-comments"></i>
+        </button>
+        <a href="https://api.whatsapp.com/send?phone=249110110054&text=مرحباً%20Nurzao،%20أود%20الحصول%20على%20استشارة%20تقنية%20بخصوص%20مشروعي." target="_blank" class="whatsapp-button" title="تواصل عبر واتساب">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Nurzao Platform. جميع الحقوق محفوظة.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">تمكين المستقبل عبر الذكاء الاصطناعي</p>
+    </footer>
+
+    <script>
+        // Toggle Chat Function
+        function toggleChat() {
+            document.getElementById('chatBox').classList.toggle('active');
+        }
+
+        // Zao Chat Logic
+        const responses = {
+            "مرحبا": "مرحباً! أنا زاوا، هنا لمساعدتك في اختيار الخدمة المناسبة. هل تريد نطاقاً جديداً؟ أم موقعاً احترافياً؟ أم وكيل ذكاء اصطناعي؟",
+            "نطاق": "رائع! نطاقات Nurzao توفر هوية رقمية قوية لعملك. سعرنا تنافسي جداً. هل تريد معرفة المزيد؟",
+            "موقع": "تصميم المواقع هو تخصصنا! نصمم صفحات هبوط عالية التحويل. كم عدد الصفحات التي تحتاجها؟",
+            "ذكاء": "وكلاء الذكاء الاصطناعي لدينا تزيد المبيعات بنسبة 40%. هل تريد عرض توضيحي مجاني؟",
+            "السعر": "أسعارنا مرنة وتعتمد على احتياجاتك. يمكننا البدء من 299 دولار. هل تريد استشارة مجانية؟",
+            "default": "أنا هنا لمساعدتك! يمكنك السؤال عن أي خدمة من خدماتنا. 😊"
+        };
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (message === '') return;
+            addMessage(message, 'user');
+            input.value = '';
+            setTimeout(() => {
+                let response = responses['default'];
+                for (let key in responses) {
+                    if (message.includes(key)) {
+                        response = responses[key];
+                        break;
+                    }
+                }
+                addMessage(response, 'bot');
+            }, 500);
+        }
+
+        function addMessage(text, sender) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.innerHTML = `<div class="message-content">${text}</div>`;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Contact Form Submission Handler - Direct WhatsApp and Email
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            console.log('Form submitted via onsubmit');
+            
+            // Validate form fields
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const service = document.getElementById('service').value;
+            const details = document.getElementById('details').value.trim();
+            
+            if (!name || !email || !phone || !service || !details) {
+                alert('يرجى ملء جميع الحقول المطلوبة');
+                return;
+            }
+            
+            // Disable submit button to prevent multiple submissions
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'جاري الإرسال...';
+            
+            // Prepare message content
+            const messageContent = `الاسم: ${name}\nالبريد الإلكتروني: ${email}\nرقم الهاتف: ${phone}\nالخدمة المطلوبة: ${service}\nالتفاصيل: ${details}`;
+            
+            // 1. Open WhatsApp with the message
+            const whatsappPhone = '249110110054'; // +249110110054 without +
+            const whatsappMessage = `مرحباً Nurzao، أنا ${name}\n\nأود طلب استشارة بخصوص: ${service}\n\nتفاصيلي:\n${messageContent}`;
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappPhone}&text=${encodeURIComponent(whatsappMessage)}`;
+            
+            // 2. Open Email with the message
+            const emailSubject = `طلب استشارة جديد من ${name}`;
+            const emailBody = `الاسم: ${name}\nالبريد الإلكتروني: ${email}\nرقم الهاتف: ${phone}\nالخدمة المطلوبة: ${service}\n\nالتفاصيل:\n${details}`;
+            const mailtoLink = `mailto:Nurzao.HQ@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Show success message
+            alert('تم تجهيز طلبك! سيتم فتح الواتساب والبريد الإلكتروني للتواصل معنا.');
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+            
+            // Open WhatsApp first
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 500);
+            
+            // Open Email after a short delay
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+            }, 1500);
+            
+            // Re-enable submit button after delays
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'إرسال الطلب';
+            }, 2000);
+        }
+
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
+
+</body>
+</html>
